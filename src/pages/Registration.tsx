@@ -26,6 +26,7 @@ export default function Registration() {
     position:"",
     company: "",
     school: "",
+    plateno:"",
   });
  useEffect(()=>{
     fetchPositions();
@@ -122,7 +123,7 @@ export default function Registration() {
 
     console.log("Registration success:", res.data);
     alert("User registered successfully!");
-
+    fetchUsers();
   } catch (err) {
     console.error("Registration error:", err);
 
@@ -398,19 +399,18 @@ const handleConfirm=async()=>{
             />
           </div>
 
-          {/* Password
-          <div>
-            <label className="block text-gray-600 mb-1">Password</label>
+           <div>
+            <label className="block text-gray-600 mb-1">Plate No.(optional)</label>
             <input
-              type="password"
-              name="password"
-              value={formData.password}
+              type="text"
+              name="plateno"
+              value={formData.plateno}
               onChange={handleChange}
-              placeholder="Enter password"
+              placeholder="Enter Plate No."
               className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-              required
+              
             />
-          </div> */}
+          </div>
 
          <button
             type="submit"

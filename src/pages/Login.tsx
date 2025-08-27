@@ -25,7 +25,7 @@ export default function Login() {
       console.log(result.data);
       // ✅ Redirect based on user level
       if (user.level === 1) {
-        navigate("/admin/dashboard");
+        navigate("/admin/realtime");
       } else {
         //navigate("/user/dashboard");
       }

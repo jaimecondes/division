@@ -100,7 +100,7 @@ app.post("/api/register", async (req, res) => {
 
 app.post("/api/user_register", async (req, res) => {
   try {
-    const { email, first_name, last_name, user_type, mobile, position, company, school } = req.body;
+    const { email, first_name, last_name, user_type, mobile, position, company, school,plateno } = req.body;
     const level = 0;
     const qr_code = await bcrypt.hash(email, 5);
 
@@ -114,9 +114,9 @@ app.post("/api/user_register", async (req, res) => {
 
     // ✅ Fix SQL placeholders count (10 values needed)
     const [result] = await db.query(
-      `INSERT INTO users (email, first_name, last_name, user_level, mobile_number, qr_code, is_admin, user_type, position, company_school) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [email, first_name, last_name, level, mobile, qr_code, 0, user_type, position, comp]
+      `INSERT INTO users (email, first_name, last_name, user_level, mobile_number, qr_code, is_admin, user_type, position, company_school,plateno) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [email, first_name, last_name, level, mobile, qr_code, 0, user_type, position, comp, plateno]
     );
 
     // ✅ Generate QR Code as PNG buffer
