@@ -49,6 +49,7 @@ export default function CsvUserUpload({fetchUsers}:Props) {
             school: rows[i].school_office,
             mobile: rows[i].mobile_number,
             email: rows[i].email,
+            plateno: rows[i].plateno,
           };
 
           try {
